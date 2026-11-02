@@ -345,25 +345,15 @@ contactForm?.addEventListener('submit', async (e) => {
 
 // trail lazy fix later it's buggy
 function createSparkle(x, y) {
-  const s = document.createElement('div');
-  s.style.cssText = `
-    position: fixed;
-    left: ${x}px; top: ${y}px;
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9997;
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-    background: hsl(${Math.random() * 60 + 290}deg, 80%, 75%);
-    transition: transform 0.6s ease, opacity 0.6s ease;
-  `;
-  document.body.appendChild(s);
-  requestAnimationFrame(() => {
-    s.style.transform = `translate(${(Math.random() - 0.5) * 40}px, ${-20 - Math.random() * 20}px) scale(0)`;
-    s.style.opacity = '0';
-  });
-  setTimeout(() => s.remove(), 650);
+    const s = document.createElement('div');
+    // Dark nature green variation (Hue: 130-160, Saturation: 65%, Lightness: 40%)
+    s.style.cssText = `position: fixed; left: ${x}px; top: ${y}px; width: 6px; height: 6px; border-radius: 50%; pointer-events: none; z-index: 9997; transform: translate(-50%, -50%) scale(1); opacity: 1; background: hsl(${130 + Math.random() * 30}deg, 65%, 40%); transition: transform 0.6s ease, opacity 0.6s ease;`;
+    document.body.appendChild(s);
+    requestAnimationFrame(() => {
+        s.style.transform = `translate(${(Math.random() - 0.5) * 40}px, ${-20 - Math.random() * 20}px) scale(0)`;
+        s.style.opacity = '0';
+    });
+    setTimeout(() => s.remove(), 650);
 }
 
 let sparkleThrottle = 0;
