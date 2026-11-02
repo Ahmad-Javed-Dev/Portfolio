@@ -1255,50 +1255,154 @@ footer {
   color: var(--text-primary);
 }
 
-/* media responsiveness  */
-@media (max-width: 768px) {
-  section {
-    padding: 80px 5vw;
-  }
+/* ─── Responsive Fixes ────────────────────────── */
 
-  #hero {
-    padding: 0 6vw;
-    min-height: 100svh;
-  }
+/* Tablet — drop to 2 columns */
+@media (max-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-  .hero-avatar,
-  .hero-badge {
-    display: none;
-  }
+    .projects-header {
+        gap: 1rem;
+    }
 
-  #navbar {
-    padding: 10px 20px;
-    gap: 1rem;
-  }
+    #hero {
+        padding: 0 6vw;
+    }
 
-  .nav-links {
-    gap: 1rem;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-card {
-    padding: 2rem 1.5rem;
-  }
+    .hero-avatar {
+        width: clamp(200px, 22vw, 320px);
+        right: 4vw;
+    }
 }
 
-@media (max-width: 480px) {
-  .nav-links {
-    display: none;
-  }
+/* Mobile — single column stack */
+@media (max-width: 640px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
 
-  #modal-body {
-    padding: 1.25rem 1.25rem 1.75rem;
-  }
+    .projects-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
 
-  #modal-title {
-    font-size: 1.35rem;
-  }
+    .section-title {
+        font-size: clamp(1.6rem, 6vw, 2.2rem);
+    }
+
+    .hero-name {
+        font-size: clamp(2.4rem, 10vw, 3.5rem);
+    }
+
+    .hero-tagline {
+        font-size: 0.95rem;
+        max-width: 100%;
+    }
+
+    .hero-cta {
+        padding: 12px 22px;
+        font-size: 0.82rem;
+    }
+
+    .contact-card {
+        padding: 2rem 1.5rem;
+        border-radius: var(--radius-lg);
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .skill-card {
+        padding: 1.1rem 0.9rem;
+    }
+
+    /* Modal mobile adjustments */
+    #project-modal {
+        padding: 1rem;
+        align-items: flex-end;
+    }
+
+    #modal-content {
+        max-height: 92vh;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        transform: translateY(100%);
+    }
+
+    #project-modal.open #modal-content {
+        transform: translateY(0);
+    }
+
+    #modal-body {
+        padding: 1.25rem 1.25rem 1.75rem;
+    }
+
+    #modal-title {
+        font-size: 1.35rem;
+    }
+
+    #modal-desc {
+        font-size: 0.85rem;
+    }
+
+    .modal-btn {
+        padding: 9px 18px;
+        font-size: 0.78rem;
+    }
+}
+
+/* Small phones — tighten navbar */
+@media (max-width: 420px) {
+    #navbar {
+        padding: 8px 16px;
+        gap: 0.6rem;
+        top: 12px;
+        border-radius: 40px;
+    }
+
+    .nav-logo {
+        font-size: 0.78rem;
+    }
+
+    #theme-toggle {
+        padding: 5px 10px;
+        font-size: 0.7rem;
+        gap: 0.25rem;
+    }
+
+    .toggle-label {
+        display: none; /* save space on tiny screens */
+    }
+}
+
+/* Landscape phones */
+@media (max-height: 500px) and (orientation: landscape) {
+    #hero {
+        min-height: auto;
+        padding: 100px 6vw 60px;
+    }
+
+    .hero-avatar {
+        display: none;
+    }
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .orb {
+        animation: none !important;
+    }
 }
