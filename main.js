@@ -24,7 +24,7 @@ const PROJECTS = {
     },
     dashboard: {
         tag: 'Dashboard · React',
-        title: 'Analytics Dashboard ✦',
+        title: 'Analytics Dashboard',
         desc: `A sleek data visualization dashboard built with React and Chart.js. Features real-time chart updates via WebSocket simulation, dark/light mode theming, responsive grid layout using CSS Grid, and interactive filter controls. Deployed on Vercel with zero-config CI/CD.`,
         tech: ['React', 'Chart.js', 'CSS Grid', 'WebSocket', 'Vercel'],
         img: 'assets/project_dashboard.png',
